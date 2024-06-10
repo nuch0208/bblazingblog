@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" /> 
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p role="alert">Sorry, There's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+
+
+@* <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,4 +33,4 @@
     <script src="_framework/blazor.web.js"></script>
 </body>
 
-</html>
+</html> *@
