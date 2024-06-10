@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\BlazingBlog\\BlazingBlog.csproj": {}
+    "D:\\BlazingBlog\\BlazingBlog.csproj": {}
   },
   "projects": {
-    "C:\\BlazingBlog\\BlazingBlog.csproj": {
+    "D:\\BlazingBlog\\BlazingBlog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BlazingBlog\\BlazingBlog.csproj",
+        "projectUniqueName": "D:\\BlazingBlog\\BlazingBlog.csproj",
         "projectName": "BlazingBlog",
-        "projectPath": "C:\\BlazingBlog\\BlazingBlog.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\BlazingBlog\\obj\\",
+        "projectPath": "D:\\BlazingBlog\\BlazingBlog.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\BlazingBlog\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

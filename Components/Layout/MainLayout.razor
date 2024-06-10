@@ -1,23 +1,18 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
+<PageTitle>Blazing Blog</PageTitle>
+
+<div class="page d-flex flex-column"> @* flex-direction เลือกให้เรียงแบบ row หรือ column ได้เลยในส่วนนี้คือเรียงตาม column *@
+    <div class="container-fluid" style="background-color: var(--color--purple);">
+          @* container-fluid กำหนดให้หน้าเว็บไซต์ หรือคลาส .container ของคุณมีขนาดเต็มพื้นที่และหน้าจอที่ใช้อยู่ได้ทันที *
+          //เราจะใส่รายละเอียดสี และอื่น ๆ ไว้ใน container นี้ *@
+        <TopNavBar />
     </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
-
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
+    <div class="cotainer-fluid flex-grow-1">
+        @* flex-grow. ใช้กำหนดขนาดของแต่ละ item ว่าให้ขยายขนาดเท่าไหร่ใน container เมื่อเทียบกับ items อื่นๆ ในที่นี้ high =1 *@
+        @Body
+    </div>
+    <footer class="fixed-bottom text-center d-flex align-items-center justify-content-center footer" >
+        <p class="mb-0 p-2">Blog App built using Blazor Server by <strong>Abhay Prince</strong></p>
+    </footer>
 </div>

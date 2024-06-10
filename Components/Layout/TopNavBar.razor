@@ -1,0 +1,29 @@
+<div class-"container-fluid" style="background-color : var(--color--purple)"> @*กล่องหลักคือ container*@
+     <header class="d-flex justify-content-center justify-content-md-between flex-wrap py-3"> @*ส่วนนี้ใช้จัดชื่อblog และ manu ด้านล่าง *@
+        <NavLink href="/" class="text-light text-decoration-none fs-4 fw-bold">Blazing Blog</NavLink>
+    @* fs=front size fw=front weight *@
+    <ul class="nav"> @* ส่วนของ meun บน Navbar และมี link ด้วยตามด้านล่างมี 4 menu *@
+        <li>
+            <NavLink href="/home" class="link-light nav-link">Home</NavLink>
+        </li>
+        <li>
+            <NavLink href="/about" class="link-light nav-link">About</NavLink>
+        </li>
+        <li>
+            <NavLink href="/manage-categories" class="link-light Nav-link">Manage Categories</NavLink>
+        </li>
+        <li>
+            <NavLink href="/manage-blogs" class="link-light Nav-link">Manage blogs</NavLink>
+        </li> 
+    </ul>
+  
+    <div clss="text-end">
+        <NavLink href="/login" class="btn btn-primary">Login</NavLink>
+    </div>
+    </header>
+</div>
+
+@code {
+
+
+}
