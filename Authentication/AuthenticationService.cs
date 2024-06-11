@@ -13,7 +13,7 @@ namespace BlazingBlog.Authentication
             _userService = userServer;
             _protectedLocalStorage = protectedLocalStorage;
         }
-        public async Task<LoggedInUser?>GetUserAsync(LoginModel loginModel)
+        public async Task<LoggedInUser?>LoginUserAsync(LoginModel loginModel)
         {
             var loggedInUser = await _userService.LoginAsync(loginModel); //loggedInUser มีค่า null หรือ login user ถ้าข้อมูลถูกก็ reture ค่าใน return loggedInUser;
             if (loggedInUser is not null) //เมื่อ user loging เช็ค if is not null ให้
@@ -52,7 +52,27 @@ namespace BlazingBlog.Authentication
             }
             return null;
         }       
-        
+        // {   
+        // try
+        //     {
+        //         var result = await _protectedLocalStorage.GetAsync<string>(UserStorageKey);
+        //         if(result.Success && !string.IsNullOrWhiteSpace(result.Value))
+        //         {
+        //         var loggedInUser = JsonSerializer.Deserialize<LoggedInUser>(result.Value, _jsonSerializrOptions);
+        //         return loggedInUser;
+        //         }
+        //     }
+        //     catch(InvalidOperationException)
+        //     {
+        //         // Eat out this exception
+        //         // as we know this will occure when this method is being class from server
+        //         // Where there is no Browser and LocalStorage
+        //         // Don't worry about this, as this will be called from client side(Browser's side) after this
+        //         // So we will have the data there
+        //         // So we are good to ignore this excetion
+        //     }
+        //     return null;
+        // }
         public async Task RemoveUserFromBroserStorageAsync()=>
             await _protectedLocalStorage.DeleteAsync(UserStorageKey);
     }

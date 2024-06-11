@@ -12,6 +12,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<CategoryService>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<BlogAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(serviceProvider =>

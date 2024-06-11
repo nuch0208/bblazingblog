@@ -1,6 +1,9 @@
+@using Microsoft.EntityFrameworkCore
+@inject BlogAuthenticationStateProvider BlogAuthStateProvider
+@inject NavigationManager NavigationManager
+
 <div class-"container"> @*กล่องหลักคือ container*@
-     <header class="d-flex justify-content-center justify-content-md-between flex-wrap py-3"> @*ส่วนนี้ใช้จัดชื่อblog และ manu ด้านล่าง *@
-        <NavLink href="/" class="text-light text-decoration-none fs-4 fw-bold">Blazing Blog</NavLink>
+ <header class="d-flex justify-content-center justify-content-md-between flex-wrap py-3 mb-4 border-white border-bottom border-5">        <NavLink href="/" class="text-light text-decoration-none fs-4 fw-bold">Blazing Blog</NavLink>
     @* fs=front size fw=front weight *@
     <ul class="nav"> @* ส่วนของ meun บน Navbar และมี link ด้วยตามด้านล่างมี 4 menu *@
         <li>
@@ -9,16 +12,28 @@
         <li>
             <NavLink href="/about" class="link-light nav-link">About</NavLink>
         </li>
+    
         <li>
-            <NavLink href="/manage-categories" class="link-light Nav-link">Manage Categories</NavLink>
+            <NavLink href="/admin/managecategories" class="link-light Nav-link">Manage Categories</NavLink>
         </li>
+
+
         <li>
-            <NavLink href="/manage-blogs" class="link-light Nav-link">Manage blogs</NavLink>
+            <NavLink href="/admin/manage-blogs" class="link-light Nav-link">Manage blogs</NavLink>
         </li> 
     </ul>
   
     <div clss="text-end">
-        <NavLink href="/login" class="btn btn-primary">Login</NavLink>
+           <AuthorizeView>
+                <Authorizing>Checking auth state...</Authorizing>
+                <Authorized>   
+                   <NavLink href="javascript:void()" class="btn btn-light disabled">@context.User?.Identity?.Name</NavLink>                             
+                    <button type="button" class="btn btn-primary">Logout</button> 
+                </Authorized>
+                <NotAuthorized>
+                    <NavLink href="/login" class="btn btn-primary">Login</NavLink>
+                </NotAuthorized>
+            </AuthorizeView>
     </div>
     </header>
 </div>

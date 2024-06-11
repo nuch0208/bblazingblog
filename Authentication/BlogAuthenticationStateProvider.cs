@@ -25,7 +25,8 @@ namespace BlazingBlog.Authentication
         }
         public LoggedInUser LoggedInUser { get; private set; } = new(0, string.Empty);//stage chaning แจ้ง user เมื่อเรา login stage เปลี่ยน พอ logout stage เปลี่ยน 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync() //we check it stage ของ Authenticate ซึ่ง require ClaimsPrincipal
-
+        
+        
         {
             var claimsPrincipal = new ClaimsPrincipal(); //สร้าง claimprinciple *claimsPrincipal เป็นคลาส จ้า เพิ่ม using ด้วย เหมือนการอ้างอิงสิทธิ์การ login ว่าเป็น user จริง ๆนะ 
             var user = await _authenticationService.GetUserFromBrowserStorageAsync(); //get user from browser stroage ก็ใช้ Function Read... ที่กำหนดใหหน้า AuthenticatinService
@@ -35,13 +36,25 @@ namespace BlazingBlog.Authentication
                 new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Value.UserId.ToString()), //*claimsPrincipal เป็นคลาส จึงต้องมีการอ้างถึงแต่ละรายการ
-                    new Claim(ClaimTypes.Name, user.Value.Displayname)
-                }, BlogAuthenticationType ); // parameter
+                    new Claim(ClaimTypes.Name, user.Value.DisplayName) //user.Value.Displayname)
+                },
+                 BlogAuthenticationType ); // parameter
                 claimsPrincipal = new(identity);
             }
           return new AuthenticationState(claimsPrincipal);
         }
 
+        public async Task<string?>LoginAsync(LoginModel loginModel)
+        {
+          var loggedInUser = await _authenticationService.LoginUserAsync(loginModel); //try to loginAsync
+          if(loggedInUser is  null) //loggedInUser is null
+            {
+                
+                return "Invalid credentials";
+            }
+            
+          return null;
+         }
          public void Dispose() =>
             AuthenticationStateChanged -= BlogAuthenticationStateProvider_AuthenticationStateChanged;
     }

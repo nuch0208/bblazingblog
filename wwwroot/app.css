@@ -56,3 +56,6 @@ h1:focus {
 :root {
     --color--gray: #777577;
 }
+.bg-purple{
+    background-color: var(--color--purple);
+}
