@@ -1,6 +1,7 @@
 using System.Security.Cryptography.Xml;
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
+using BlazingBlog.Extensions;
 
 namespace BlazingBlog.Services
 {
@@ -24,26 +25,24 @@ namespace BlazingBlog.Services
             {
                 
                 if(model.Id > 0)
-            {
-                //update category
-            }
+                {
+                    //update category
+                    _context.Categories.Update(model);
+                }
             else
-            {
-                //create category
-                model.Slug = model.Slug.Slugify();
-                await _context.Categories.AddAsync(model);
+                {
+                    //create category
+                    model.Slug = model.Slug.Slugify();
+                    await _context.Categories.AddAsync(model);
+                }
+                await _context.SaveChangesAsync();
+                return MethodResult.Succes();
             }
-            await _context.SaveChangesAsync();
-            return MethodResult.Succes();
-            }
-            catch(Exception)
+            catch(Exception ex)
             {
                 //log exception
-                return MethodResult.Failure(null);
+                return MethodResult.Failure(ex.Message);
             }
-        }
-
-    
-       
+        } 
     }
 }

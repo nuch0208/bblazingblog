@@ -1,6 +1,6 @@
 @inject CategoryService CategoryService
 
-<EditForm Model="_categoryModel" //OnValidSubmit="SaveCategoryAsync" >
+<EditForm Model="_categoryModel" >
     <DataAnnotationsValidator />
     <div class="card border-0">
         <div class="card-header bg-purple text-white d-flex justify-conten-between align-items-center style="min-width:250px">
@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="mb-3">
                 <label class="form-label">Name:</label>
-                <InputText @bind-Value="_categoryModel.Name" class="form-control" placeholder="Category name" //@onblur="OnNameBlur"/>
+                <InputText @bind-Value="_categoryModel.Name" class="form-control" placeholder="Category name" //@onblur="OnNameBlur" />
                 <ValidationMessage For="()=> _categoryModel.Name" />
             </div>
              <div class="mb-3">
@@ -29,20 +29,22 @@
 @code {
 
     [Parameter]
-    public EventCallback<MethodResult> OnSaveCategory { get; set;}
+    public EventCallback<MethodResult> OnSaveCategory{ get; set; }
     private Category _categoryModel = new();
-    
-    private async Task OnNameBlur()
+    private void OnNameBlur()
     {
         if(!string.IsNullOrWhiteSpace(_categoryModel.Name))
         {
-           // _categoryModel.Slug = _categoryModel.Name.Slugify();
+            _categoryModel.Slug = _categoryModel.Name.Slugify();
         }
     }
     private async Task SaveCatergoryAsync()
     {
-        MethodResult result = await CategoryService.SaveCategoryAsync(_categoryModel);
+         MethodResult result = await CategoryService.SaveCategoryAsync(_categoryModel);
+        if (result.Status)
+        {
+            _categoryModel = new();
+        }
         await OnSaveCategory.InvokeAsync(result);
-
     }
 }

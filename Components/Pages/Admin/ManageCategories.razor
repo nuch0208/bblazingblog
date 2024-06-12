@@ -1,5 +1,5 @@
 @page "/admin/managecategories"
-@using BlazingBlog.Components.Admin
+@using BlazingBlog.Components
 
 @inject CategoryService CategoryService
 @inject IJSRuntime Js
@@ -69,6 +69,10 @@
     private IEnumerable<Category>? _categories = null;
     protected override async Task OnInitializedAsync()
     {
+        await LoadCategoriesAsync();
+    }
+    private async Task LoadCategoriesAsync()
+    {
        _loading = true;
        try
        {
@@ -86,6 +90,7 @@
         {
             //Categrory save successfully
             await AlertAsyn("Category save successfully");
+            await LoadCategoriesAsync();
         }
         else
         {

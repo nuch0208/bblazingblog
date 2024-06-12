@@ -18,10 +18,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\BlazingBlog
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/BlazingBlog/Components/Admin/SaveCategoryForm.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBZG1pblxTYXZlQ2F0ZWdvcnlGb3JtLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/BlazingBlog/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BlazingBlog/Components/Pages/Admin/ManageCategories.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxNYW5hZ2VDYXRlZ29yaWVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BlazingBlog/Components/Pages/Admin/SaveCategoryForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxTYXZlQ2F0ZWdvcnlGb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BlazingBlog/Components/Pages/Error.razor]
