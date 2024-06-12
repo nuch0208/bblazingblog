@@ -4,5 +4,5 @@ global using BlazingBlog.Services;
 global using BlazingBlog.Data;
 global using BlazingBlog.Data.Entities;
 global using BlazingBlog.Authentication;
-global using BlazingBlog.Extensions;
+global using BlazingBlog.Components;
 
