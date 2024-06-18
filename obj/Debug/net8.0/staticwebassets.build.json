@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Rqq3I3bNMoRbxyLT5l80ltyn2ghA5+/kmMtRBQ6pG1Y=",
+  "Hash": "+e9kaaEzRB7Fa/1IRm+fqfAtMSWK41TmS0reC2p7DEU=",
   "Source": "BlazingBlog",
   "BasePath": "_content/BlazingBlog",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BlazingBlog\\wwwroot",
       "Source": "BlazingBlog",
-      "ContentRoot": "D:\\BlazingBlog\\wwwroot\\",
+      "ContentRoot": "D:\\bblazingblog\\wwwroot\\",
       "BasePath": "_content/BlazingBlog",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\BlazingBlog\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazingBlog.styles.css",
+      "Identity": "D:\\bblazingblog\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazingBlog.styles.css",
       "SourceId": "BlazingBlog",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\BlazingBlog\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\bblazingblog\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BlazingBlog",
       "RelativePath": "BlazingBlog.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\BlazingBlog\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazingBlog.styles.css"
+      "OriginalItemSpec": "D:\\bblazingblog\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazingBlog.styles.css"
     },
     {
-      "Identity": "D:\\BlazingBlog\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazingBlog.bundle.scp.css",
+      "Identity": "D:\\bblazingblog\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazingBlog.bundle.scp.css",
       "SourceId": "BlazingBlog",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\BlazingBlog\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\bblazingblog\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BlazingBlog",
       "RelativePath": "BlazingBlog.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\BlazingBlog\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazingBlog.bundle.scp.css"
+      "OriginalItemSpec": "D:\\bblazingblog\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazingBlog.bundle.scp.css"
     },
     {
-      "Identity": "D:\\BlazingBlog\\wwwroot\\app.css",
+      "Identity": "D:\\bblazingblog\\wwwroot\\app.css",
       "SourceId": "BlazingBlog",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\BlazingBlog\\wwwroot\\",
+      "ContentRoot": "D:\\bblazingblog\\wwwroot\\",
       "BasePath": "_content/BlazingBlog",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "D:\\BlazingBlog\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "D:\\bblazingblog\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "BlazingBlog",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\BlazingBlog\\wwwroot\\",
+      "ContentRoot": "D:\\bblazingblog\\wwwroot\\",
       "BasePath": "_content/BlazingBlog",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\BlazingBlog\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "D:\\bblazingblog\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BlazingBlog",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\BlazingBlog\\wwwroot\\",
+      "ContentRoot": "D:\\bblazingblog\\wwwroot\\",
       "BasePath": "_content/BlazingBlog",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\BlazingBlog\\wwwroot\\favicon.png",
+      "Identity": "D:\\bblazingblog\\wwwroot\\favicon.png",
       "SourceId": "BlazingBlog",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\BlazingBlog\\wwwroot\\",
+      "ContentRoot": "D:\\bblazingblog\\wwwroot\\",
       "BasePath": "_content/BlazingBlog",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "D:\\BlazingBlog\\wwwroot\\js\\common.js",
+      "Identity": "D:\\bblazingblog\\wwwroot\\js\\common.js",
       "SourceId": "BlazingBlog",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\BlazingBlog\\wwwroot\\",
+      "ContentRoot": "D:\\bblazingblog\\wwwroot\\",
       "BasePath": "_content/BlazingBlog",
       "RelativePath": "js/common.js",
       "AssetKind": "All",

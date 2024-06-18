@@ -1,4 +1,5 @@
 @page "/admin/managecategories"
+@using Microsoft.JSInterop
 
 @inject IJSRuntime Js
 @inject CategoryService CategoryService
@@ -8,8 +9,9 @@
         <h3>Manage Categories</h3>
         <button class="btn btn-primary btn-sm" @onclick="OpenCategoryFormAsync">+ Add new Category</button>
     </div>
-    <hr />
-    <table class="table">
+    using Microsoft.JSInterop;
+#line default
+<table class="table">
         <thead>
             <tr>
                 <th>#</th>

@@ -1,4 +1,4 @@
-﻿@using BlazingBlog.Components.Layout
+﻿@using BlazingBlog
 @using Microsoft.AspNetCore.Components.Authorization
 
 
@@ -23,7 +23,7 @@
     <CascadingAuthenticationState>
         <Router AppAssembly="@typeof(App).Assembly">
             <Found Context="routeData">
-                <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <AuthorizeRouteView RouteData="routeData" DefaultLayout="@typeof(Layout.MainLayout)">
                     <Authorizing>
                         <p>Checking auth state, Please wait...</p>
                     </Authorizing>
@@ -32,11 +32,11 @@
                         <NavLink href="/">Go to home page</NavLink>
                     </NotAuthorized>
                 </AuthorizeRouteView>
-                <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+                <FocusOnNavigate RouteData="routeData" Selector="h1" />
             </Found>
             <NotFound>
                 <PageTitle>Not found</PageTitle>
-                <LayoutView Layout="@typeof(MainLayout)">
+                <LayoutView Layout="@typeof(Layout.MainLayout)">
                     <p role="alert">Sorry, there's nothing at this address.</p>
                 </LayoutView>
             </NotFound>

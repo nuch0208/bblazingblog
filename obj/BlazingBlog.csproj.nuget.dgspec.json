@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BlazingBlog\\BlazingBlog.csproj": {}
+    "D:\\bblazingblog\\BlazingBlog.csproj": {}
   },
   "projects": {
-    "D:\\BlazingBlog\\BlazingBlog.csproj": {
+    "D:\\bblazingblog\\BlazingBlog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BlazingBlog\\BlazingBlog.csproj",
+        "projectUniqueName": "D:\\bblazingblog\\BlazingBlog.csproj",
         "projectName": "BlazingBlog",
-        "projectPath": "D:\\BlazingBlog\\BlazingBlog.csproj",
+        "projectPath": "D:\\bblazingblog\\BlazingBlog.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\BlazingBlog\\obj\\",
+        "outputPath": "D:\\bblazingblog\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"

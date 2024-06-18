@@ -3,7 +3,7 @@
 @inject NavigationManager NavigationManager
 
 <div class-"container"> @*กล่องหลักคือ container*@
- <header class="d-flex justify-content-center justify-content-md-between flex-wrap py-3 mb-4 border-white border-bottom border-5">        <NavLink href="/" class="text-light text-decoration-none fs-4 fw-bold">Blazing Blog</NavLink>
+ <header class="d-flex justify-content-center justify-content-md-between flex-wrap py-3 mb-4 border-white border-bottom border-5 " color = "--color--purple">        <NavLink href="/" class="text-light text-decoration-none fs-4 fw-bold">Blazing Blog</NavLink>
     @* fs=front size fw=front weight *@
     <ul class="nav"> @* ส่วนของ meun บน Navbar และมี link ด้วยตามด้านล่างมี 4 menu *@
         <li>
@@ -27,7 +27,7 @@
            <AuthorizeView>
                 <Authorizing>Checking auth state...</Authorizing>
                 <Authorized>   
-                   <NavLink href="javascript:void()" class="btn btn-light disabled">@context.User?.Identity?.Name</NavLink>                             
+                   <NavLink href="javascript:void()" class="btn btn-light disabled">@context.User?.Identity?.Name</NavLink>                              
                     <button type="button" class="btn btn-primary">Logout</button> 
                 </Authorized>
                 <NotAuthorized>

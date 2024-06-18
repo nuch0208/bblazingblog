@@ -13,6 +13,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddTransient<UserService>();
 builder.Services.AddTransient<CategoryService>();
+builder.Services.AddTransient<BlogPostService>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<BlogAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(serviceProvider =>
