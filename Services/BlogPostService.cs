@@ -11,11 +11,19 @@ namespace BlazingBlog.Services
         {
             _context = context;
         }
-        public async Task<IEnumerable<BlogPost>>GetPostsAsync()=>
-            await _context.BlogPosts
-                            .Include(bp=> bp.Category)
-                            .AsNoTracking()
-                            .ToListAsync();
+        public async Task<IEnumerable<BlogPost>>GetPostsAsync(bool publishedOnly = false)
+        {
+            var query = _context.BlogPosts
+                            .Include(bp => bp.Category)
+                            .AsNoTracking();
+            if(publishedOnly)
+            {
+                query = query.Where(bp => bp.IsPublished);
+            }                
+                           
+            return await query.ToListAsync();
+        }
+            
 
          public async Task<BlogSaveModel?>GetPostAsync(int blogId)=>
             await _context.BlogPosts
