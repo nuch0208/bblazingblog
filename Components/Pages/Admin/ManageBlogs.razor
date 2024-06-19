@@ -39,7 +39,8 @@
                 int sno =1;
                 @foreach (var post in _posts)
                 {
-                     <tr>
+                    var editBlogLink = $"/admin/manage-blogs/edit/{post.Id}";
+                    <tr>
                     <td>@(sno++)</td>
                     <td>@post.Id</td>
                     <td>@post.Title</td>
@@ -60,7 +61,7 @@
                         }
                     </td>
                     <td>
-                        <NavLink href="EDIT_BLOG_POST_LINK" class="btn btn-primary btn-sm">+ Edit first blog post</NavLink>
+                        <NavLink href="@editBlogLink" class="btn btn-primary btn-sm">+ Edit first blog post</NavLink>
                     </td>
                     <td>@post.Id</td>
                 </tr>

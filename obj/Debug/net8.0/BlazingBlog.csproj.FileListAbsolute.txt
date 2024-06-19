@@ -405,3 +405,14 @@ D:\bblazingblog\obj\Debug\net8.0\refint\BlazingBlog.dll
 D:\bblazingblog\obj\Debug\net8.0\BlazingBlog.pdb
 D:\bblazingblog\obj\Debug\net8.0\BlazingBlog.genruntimeconfig.cache
 D:\bblazingblog\obj\Debug\net8.0\ref\BlazingBlog.dll
+D:\bblazingblog\bin\Debug\net8.0\Blazored.TextEditor.dll
+D:\bblazingblog\bin\Debug\net8.0\BlazorBootstrap.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\bblazingblog\bin\Debug\net8.0\Microsoft.JSInterop.dll

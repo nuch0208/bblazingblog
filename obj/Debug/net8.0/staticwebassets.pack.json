@@ -9,14 +9,6 @@
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "D:\\bblazingblog\\wwwroot\\bootstrap\\bootstrap.min.css",
-      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
-    },
-    {
-      "Id": "D:\\bblazingblog\\wwwroot\\bootstrap\\bootstrap.min.css.map",
-      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
-    },
-    {
       "Id": "D:\\bblazingblog\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
