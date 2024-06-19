@@ -82,7 +82,7 @@
         try
         {
             //load blog posts from BlogService
-            _posts = await BlogPostService.GetPostsAsync();
+            _posts = await BlogPostService.GetPostAsync();
         }
         catch (Exception ex)
         {

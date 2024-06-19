@@ -1,5 +1,8 @@
 using BlazingBlog.Extensions;
 using Microsoft.EntityFrameworkCore;
+using BlazingBlog.Components.Pages;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace BlazingBlog.Services
 {
@@ -11,21 +14,32 @@ namespace BlazingBlog.Services
         {
             _context = context;
         }
-        public async Task<IEnumerable<BlogPost>>GetPostsAsync(bool publishedOnly = false)
+        public async Task<IEnumerable<BlogPost>> GetPostsAsync(bool publishedOnly = false, string? categorySlug = null)
         {
             var query = _context.BlogPosts
                             .Include(bp => bp.Category)
-                            .AsNoTracking();
-            if(publishedOnly)
+                           .AsNoTracking();
+
+            if(!string.IsNullOrWhiteSpace(categorySlug))
+            {
+                var categoryId = await _context.Categories
+                                    .AsNoTracking()
+                                    .Where(c=> c.Slug == categorySlug)
+                                    .Select(c=> c.Id)
+                                    .FirstOrDefaultAsync();
+                if(categoryId > 0) 
+                { 
+                    query = query.Where(bp=> bp.CategoryId == categoryId);
+                }
+            }
+
+            if (publishedOnly)
             {
                 query = query.Where(bp => bp.IsPublished);
-            }                
-                           
-            return await query.ToListAsync();
-        }
-            
+            }
 
-         public async Task<BlogSaveModel?>GetPostAsync(int blogId)=>
+            return await query.ToListAsync();
+        }         public async Task<BlogSaveModel?>GetPostAsync(int blogId)=>
             await _context.BlogPosts
                             .Include(bp=> bp.Category)
                             .AsNoTracking()

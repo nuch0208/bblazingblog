@@ -1,4 +1,6 @@
 ﻿@page "/"
+@page "/c/{categorySlug}/posts"
+
 
 @inject BlogPostService BlogPostService
 @inject CategoryService CategoryService
@@ -26,31 +28,7 @@
             }
             else
             {
-                <ul class="list-unstyled">
-                    @foreach (var post in posts)
-                    {
-                        <li class="mb-3">
-                            <div class="row">
-                                <div class="col-sm-2 bg-primary rounded d-flex justify-content-center align-items-center">
-                                    <label class="fs-1 text-uppercase">@post.Title.Substring(0,1)</label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <h2>
-                                        <NavLink href="BLOG_POST_DETAIL_PAGE" class="text-decoration-none text-dark fs-5" title="@post.Title">@post.Title</NavLink>
-                                    </h2>
-                                    <small>
-                                        <label>
-                                            <NavLink href="CATEGORY_BLOG_POSTS" class="text-decoration-none" title="@post.CategoryName">@post.CategoryName</NavLink>
-                                        </label>
-                                        <label>
-                                            @post.PublishedOn!.Value.ToString()
-                                        </label>
-                                    </small>
-                                </div>
-                            </div>
-                        </li>
-                    }
-                </ul>
+               <BlogPostsList Posts="posts"/>
             }
         </div>
          <div class="col-sm-3">
@@ -59,8 +37,9 @@
             <ul class="list-unstyled">
                 @foreach(var category in categories)
                 {
+                    var categoryPostsLink = $"/c/{category.Slug}/posts";
                     <li class="mb-1 border-bottom p-1">
-                        <NavLink href="CATEGORY_BLOG_POSTS" class="text-decoration-none fs-6 py-2 text-truncate">@category.Name</NavLink>
+                        <NavLink href="@categoryPostsLink" class="text-decoration-none fs-6 py-2 text-truncate">@category.Name</NavLink>
                     </li>
                 }
             </ul>
@@ -70,13 +49,30 @@
 </div>
 
 @code {
-    private IEnumerable<BlogPost> posts = Enumerable.Empty<BlogPost>();
+    [Parameter]
+    public string? CategorySlug {get; set;}
+    private string? heading = "Lastes Posts";
+    private IEnumerable<BlogPost>  posts = Enumerable.Empty<BlogPost>();
     private IEnumerable<Category> categories = Enumerable.Empty<Category>();
-    protected override async Task OnInitializedAsync()
+    
+    protected override async Task OnParametersSetAsync()
     {
-        var postsTask =  BlogPostService.GetPostsAsync(publishedOnly : true);
-        categories = await CategoryService.GetCategoriesAsync();
+        await SetDataAsync();
+    }
+    private async Task SetDataAsync()
+    {
+        
+        var postsTask = BlogPostService.GetPostAsync(publishedOnly : true, CategorySlug);
+
+        if(!categories.Any())
+            categories = await CategoryService.GetCategoriesAsync();
+
+        if(!string.IsNullOrWhiteSpace(CategorySlug))
+        {
+            var catergoryName = categories.Where(c=> c.Slug == CategorySlug).First().Name;
+            heading = $"Latest{CategorySlug} Posts";
+        }
+
         posts = await postsTask;
     }
-
 }
