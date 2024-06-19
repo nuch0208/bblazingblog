@@ -25,37 +25,50 @@ namespace BlazingBlog.Authentication
         }
         public LoggedInUser LoggedInUser { get; private set; } = new(0, string.Empty);//stage chaning แจ้ง user เมื่อเรา login stage เปลี่ยน พอ logout stage เปลี่ยน 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync() //we check it stage ของ Authenticate ซึ่ง require ClaimsPrincipal
-        
-        
         {
             var claimsPrincipal = new ClaimsPrincipal(); //สร้าง claimprinciple *claimsPrincipal เป็นคลาส จ้า เพิ่ม using ด้วย เหมือนการอ้างอิงสิทธิ์การ login ว่าเป็น user จริง ๆนะ 
             var user = await _authenticationService.GetUserFromBrowserStorageAsync(); //get user from browser stroage ก็ใช้ Function Read... ที่กำหนดใหหน้า AuthenticatinService
-            if (user is not null)// check หากเราได้รับ user นั่นหมายความว่า user loggedin แล้ว และเก็บค่าใน browser storage
+            if (user is not null)
             {
-                var identity = new ClaimsIdentity( //require และ identity เป็น type ของการ Authentication
-                new[]
-                {
-                    new Claim(ClaimTypes.NameIdentifier, user.Value.UserId.ToString()), //*claimsPrincipal เป็นคลาส จึงต้องมีการอ้างถึงแต่ละรายการ
-                    new Claim(ClaimTypes.Name, user.Value.DisplayName) //user.Value.Displayname)
-                },
-                 BlogAuthenticationType ); // parameter
-                claimsPrincipal = new(identity);
+                claimsPrincipal = GetClaimsPrincipalFromUser(user.Value);
             }
-          return new AuthenticationState(claimsPrincipal);
+            var authState = new AuthenticationState(claimsPrincipal);
+            NotifyAuthenticationStateChanged(Task.FromResult(authState));
+            return authState;
         }
 
-        public async Task<string?>LoginAsync(LoginModel loginModel)
+        public async Task<string?> LoginAsync(LoginModel loginModel)
         {
-          var loggedInUser = await _authenticationService.LoginUserAsync(loginModel); //try to loginAsync
-          if(loggedInUser is  null) //loggedInUser is null
+            var loggedInUser = await _authenticationService.LoginUserAsync(loginModel);
+            if (loggedInUser is null)
             {
-                
                 return "Invalid credentials";
             }
-            
-          return null;
-         }
-         public void Dispose() =>
+            var authState = new AuthenticationState(GetClaimsPrincipalFromUser(loggedInUser.Value));
+            NotifyAuthenticationStateChanged(Task.FromResult(authState));
+            return null;
+        }
+
+        public async Task LogoutAsync()
+        {
+            await _authenticationService.RemoveUserFromBroserStorageAsync();
+            var authState = new AuthenticationState(new ClaimsPrincipal());
+            NotifyAuthenticationStateChanged(Task.FromResult(authState));
+        }
+
+        private static ClaimsPrincipal GetClaimsPrincipalFromUser(LoggedInUser user)
+        {
+            var identity = new ClaimsIdentity(
+                    new[]
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+                        new Claim(ClaimTypes.Name, user.DisplayName)
+                    }, BlogAuthenticationType);
+            return new ClaimsPrincipal(identity);
+        }
+
+        public void Dispose() =>
             AuthenticationStateChanged -= BlogAuthenticationStateProvider_AuthenticationStateChanged;
+
     }
 }

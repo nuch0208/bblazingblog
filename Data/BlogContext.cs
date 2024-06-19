@@ -24,6 +24,22 @@ namespace BlazingBlog.Data
             optionsBuilder.LogTo(Console.WriteLine);
 #endif
         }
+
+        // public override Task<int>SaveChangesAsync(CancellationToken cancellationToken = default)
+        // {
+        //     foreach(var entry in ChangeTracker.Entries())
+        //     {
+        //         if(entry.State == EntityState.Modified)
+        //         {
+        //             entry.Entity
+        //         }
+        //         else()
+        //         {
+
+        //         }
+        //     }
+        //     return base.SaveChangesAsync(cancellationToken);
+        // } 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -36,7 +52,7 @@ namespace BlazingBlog.Data
                         Email = "abhayprince@outlook.com",
                         FirstName = "Abhay",
                         LastName = "Prince",
-                        Salt = "dshfksdhfk",
+                        Salt = "12345",
                         Hash = "dfhkhsdskdfffgfjgfjgkdfhjgkdf/="
                     }
                 );

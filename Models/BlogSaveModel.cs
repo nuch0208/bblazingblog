@@ -45,7 +45,7 @@ namespace BlazingBlog.Models
             return entity;
         }
 
-        public static Expression<Func<BlogPost, BlogSaveModel>> Selector =>
+        public static Expression<Func<BlogPost, BlogSaveModel>> Selector => //create selector function
             bp => new BlogSaveModel
             {
                 Id = bp.Id,
